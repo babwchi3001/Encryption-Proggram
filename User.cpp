@@ -142,7 +142,7 @@ bool User::sendMessage(const std::string& recipient, const std::string& filename
 
     converted_text = "Recipient: " + recipient + "\n"
                      + "Sender: " + getName() + "\n"
-                     + converted_text;
+                     + converted_text + "\n";
    text_file<<converted_text;
    text_file.close();
    IO::printEncryptedMessage(converted_text);
