@@ -86,9 +86,9 @@ for(size_t us_count = 0; us_count < config_check.size();us_count++)
 
         for(auto a:string_check)
         {
-          if(!std::isalpha(a))
+          if(!std::isalpha(a) && !std::isdigit(a))
           {
-            //std::cout<<"HERE 2"<<std::endl;
+           // std::cout<<"HERE 2"<<std::endl;
             return false;
           }        }
 
@@ -151,6 +151,7 @@ for(size_t us_count = 0; us_count < config_check.size();us_count++)
 
 /// Jeder Kontakt einer:eines Benutzers:Benutzerin muss die:den Benutzer:in selbst wieder als Kontakt haben. (Symmetrie)
 bool symmetric = false;
+bool needed_check = true;
 size_t user_pos = 0;
 for(auto users : config_check)
 {
@@ -166,6 +167,7 @@ for(auto users : config_check)
         {
           if(user_contact_check[new_contact_counter] == curr_user)
           {
+            needed_check = false;
             symmetric = true;
             break;
           }
@@ -173,9 +175,9 @@ for(auto users : config_check)
       }
     }
   }
-  if(!symmetric)
+  if(!symmetric && !needed_check)
   {
-   // std::cout<<"HERE 6"<<std::endl;
+   std::cout<<"HERE 6"<<std::endl;
     return false;
   }
 }

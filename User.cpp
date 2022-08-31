@@ -188,8 +188,7 @@ std::vector<std::string> sender_check;
     sender_check.push_back(token);
   }
 
-std::string encrypted_msg;
-encrypted_msg = sender_check[4];
+  std::string encrypted_msg = sender_check[4];
 
 std::string decrypted_text;
 bool contact_check = false;
